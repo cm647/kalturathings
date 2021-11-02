@@ -36,7 +36,7 @@ audioFileExt = ['mp3', 'aiff', 'mp4', 'wav', 'au', 'mid', 'midi', 'ogg','flac',
 
 
 def makeXML(reader, outputFileName):
-    print('you have made it to makeXML')
+    print('making XML')
     # kaltura = xml.Element('mrss') #make root
     # xml.register_namespace('xmlns:xsd', 'http://www.w3.org/2001/XMLSchema') #add namespaces
     # xml.register_namespace('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')#add namespaces
@@ -150,11 +150,12 @@ def makeXML(reader, outputFileName):
 
             else:
                 # print('no content in field ' + str(rk))
+                pass
 
     md_xml = xml.ElementTree(kaltura)
     # print(str(md_xml))
     toast = md_xml.write(outputFileName, xml_declaration=True)
-    print(toast)
+    # print(toast)
 
 
     return
