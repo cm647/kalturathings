@@ -67,6 +67,7 @@ def makeXML(reader, outputFileName):
         repository = xml.SubElement(metadata, 'Repository')
         accesslevel = xml.SubElement(metadata, 'AccessLevel')
         creation = xml.SubElement(metadata, 'DateOfCreation')
+        aspace = xml.SubElement(metadata, 'ASpaceIdentifier')
 
 
         for rk in row.keys():
@@ -143,6 +144,9 @@ def makeXML(reader, outputFileName):
 
             elif 'title' in rk or 'name' in rk:
                 name.text = str(row[rk])
+                
+            elif 'Space' in rk:
+                aspace.text = str(row[rk])
 
             # elif len(row[rk]) > 0 and not '5761' in str(row[rk]):
             #     eltmp = xml.SubElement(item, fields[rk])
