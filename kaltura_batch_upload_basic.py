@@ -125,7 +125,7 @@ def makeXML(reader, outputFileName):
                     # eltmp=xml.SubElement(item, 'type')
                     type.text = '2'
 
-            elif 'dentifier' in rk:
+            elif 'dentifier' in rk and not 'ASpace' in rk::
                 identifier.text = str(row[rk])
 
             elif 'ollection' in rk:
