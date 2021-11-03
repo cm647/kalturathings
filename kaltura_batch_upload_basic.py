@@ -27,7 +27,8 @@ fields = {
         'metadataField_Collection' : 'Collection',
         'metadataField_AccessionNumber' : 'AccessionNumber',
         'metadataField_Repository' : 'Repository',
-        'metadataField_AccessLevel' : 'AccessLevel'
+        'metadataField_AccessLevel' : 'AccessLevel',
+        'metadataField_ASpaceIdentifier' : 'ASpaceIdentifier'
         }
 
 audioFileExt = ['mp3', 'aiff', 'mp4', 'wav', 'au', 'mid', 'midi', 'ogg','flac',
