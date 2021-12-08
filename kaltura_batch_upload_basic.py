@@ -21,7 +21,7 @@ fields = {
         'description' : 'description',
         'tags' : 'tags',
         'category' : 'categories',
-        'contentType' : 'type',
+        'contentType' : 'mediaType',
         'metadataProfileId' : '5761',
         'metadataField_Identifier' : 'Identifier',
         'metadataField_Collection' : 'Collection',
@@ -37,7 +37,7 @@ audioFileExt = ['mp3', 'aiff', 'mp4', 'wav', 'au', 'mid', 'midi', 'ogg','flac',
 
 
 def makeXML(reader, outputFileName):
-    print('making XML')
+    print('making xml')
     # kaltura = xml.Element('mrss') #make root
     # xml.register_namespace('xmlns:xsd', 'http://www.w3.org/2001/XMLSchema') #add namespaces
     # xml.register_namespace('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')#add namespaces
@@ -53,10 +53,13 @@ def makeXML(reader, outputFileName):
         action = xml.SubElement(item, 'action')
         action.text = "add"
         type = xml.SubElement(item, 'type')
+        type.text = "1"
         referenceId = xml.SubElement(item, 'referenceId')
         name = xml.SubElement(item, 'name')
         tags = xml.SubElement(item, 'tags')
         categories = xml.SubElement(item, 'categories')
+        media = xml.SubElement(item, 'media')
+        mediaType = xml.SubElement(media, 'mediaType')
         custom = xml.SubElement(item, 'customDataItems')
         customD = xml.SubElement(custom, 'customData')
         customD.set('metadataProfileId', '5761')
@@ -119,11 +122,11 @@ def makeXML(reader, outputFileName):
             elif rk =='contentType':
                 if 'ideo' in row[rk]:
                     # eltmp=xml.SubElement(item, 'type')
-                    type.text = '1'
+                    mediaType.text = '1'
                 else:
                     # print('audio file')
                     # eltmp=xml.SubElement(item, 'type')
-                    type.text = '2'
+                    mediaType.text = '5'
 
             elif 'dentifier' in rk and not 'ASpace' in rk:
                 identifier.text = str(row[rk])
@@ -145,7 +148,7 @@ def makeXML(reader, outputFileName):
 
             elif 'title' in rk or 'name' in rk:
                 name.text = str(row[rk])
-                
+
             elif 'ASpace' in rk:
                 aspace.text = str(row[rk])
 
