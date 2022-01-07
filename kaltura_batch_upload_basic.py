@@ -56,6 +56,7 @@ def makeXML(reader, outputFileName):
         type.text = "1"
         referenceId = xml.SubElement(item, 'referenceId')
         name = xml.SubElement(item, 'name')
+        description = xml.SubElement(item, 'description')
         tags = xml.SubElement(item, 'tags')
         categories = xml.SubElement(item, 'categories')
         media = xml.SubElement(item, 'media')
@@ -151,6 +152,9 @@ def makeXML(reader, outputFileName):
 
             elif 'ASpace' in rk:
                 aspace.text = str(row[rk])
+                
+            elif 'description' in rk:
+                description.text = str(row[rk])
 
             # elif len(row[rk]) > 0 and not '5761' in str(row[rk]):
             #     eltmp = xml.SubElement(item, fields[rk])
